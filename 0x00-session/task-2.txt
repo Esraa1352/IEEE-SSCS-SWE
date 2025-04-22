@@ -1,0 +1,2 @@
+./std.out: line 7: syntax error near unexpected token `newline'
+./std.out: line 7: `<!DOCTYPE html>'
