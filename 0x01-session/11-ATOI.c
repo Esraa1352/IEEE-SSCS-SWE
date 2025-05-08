@@ -1,6 +1,7 @@
 #include "putchar.h"
 #include <fcntl.h>
 #include <unistd.h>
+#include "ATOI.h"
 
 int convert(const char *strg) {
 int i = 0;
@@ -25,7 +26,7 @@ sign =1;
 }
 else 
 {
-sign=1;
+sign=-1;
 }
 
 // Convert numeric part
@@ -40,12 +41,12 @@ result *= sign;
 // Output result using _putchar
 if (result < 0)
 {
-_putchar(1, '-');
+_putchar(fd, '-');
 result = -result;
 }
 
 if (result == 0) {
-_putchar(1, '0');
+_putchar(fd, '0');
 }
 else
 {
@@ -56,11 +57,11 @@ buffer[j++] = (result % 10) + '0';
 result /= 10;
 }
 for (int k = j - 1; k >= 0; k--) {
-_putchar(1, buffer[k]);
+_putchar(fd, buffer[k]);
 }
 }
 
-_putchar(1, '\n');
+_putchar(fd, '\n');
 close(fd);
 
 return result * ((sign == -1) ? -1 : 1);

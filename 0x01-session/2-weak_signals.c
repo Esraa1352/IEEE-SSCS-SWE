@@ -12,7 +12,7 @@ void check_signal(int strength)
 {
 int detected=is_strong_signal(strength);
 if (detected)
-printf("Strong signal detected \n");
+printf("Strong signal detected\n");
 else
 printf("No signal detected\n");
 }
