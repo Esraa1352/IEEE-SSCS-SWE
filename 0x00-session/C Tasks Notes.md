@@ -51,8 +51,8 @@ in order to use it in multiple files to print we need too make a header so we do
 write() → for output which is `#include unistd.h`
 2- we need to know how to use Write() we pass to this function 3 things 
 - 1 which is standard output (stdout)  
--&c address of the character
--number of bytes to be printed 'in this case 1 as we print 1 character '
+- &c address of the character
+- number of bytes to be printed 'in this case 1 as we print 1 character '
 
 **to use this in any code we simply**
 `#include _putchar.h 
