@@ -1,19 +1,34 @@
-#First Task Note
-## LINUX 
+# First Task Note
+
+## LINUX
 
 ### Mission 0:
-**Making multiple directories in one line one inside the other ----> ** mkdir -p folder_name/folder_inside_name
+**Making multiple directories in one line one inside the other**  
+`mkdir -p folder_name/folder_inside_name`
+
 
 ### Mission 1:
-**To download files from a link ---> ** wget link
-**To search for how many times a word was mentioned in a certain file ---> ** grep -o file_name | wc -l 
-**To save results of compiling in a certain file ---> ** grep -o file_name | wc -l > path of the destination
+**To download files from a link**  
+`wget link`
 
-###Mission 2:
-**What is stdin , stdout , stderr? --->
- 1- stdin  redirects (saves) input to a file **command is :**  0> file name to save input in 
- 2- stdout redirects (saves) output to a file **command is :** 1> file name to save output in
- 3- stderr redirects (saves) error to a file **command is :**  2> file name to save errors in
+**To search for how many times a word was mentioned in a certain file**  
+`grep -o word file_name | wc -l`
 
-###Mission 3:
-** To find the line with the a certain code and its line number ---> ** grep + -n + certain code you are seaching > file we are searching in 
+**To save results of compiling in a certain file**  
+`grep -o word file_name | wc -l > path/to/destination.txt`
+
+
+### Mission 2:
+**What is stdin, stdout, stderr?**
+
+1. **stdin** redirects (saves) input to a file  
+   **Command:** `0> file_name`
+2. **stdout** redirects (saves) output to a file  
+   **Command:** `1> file_name`
+3. **stderr** redirects (saves) errors to a file  
+   **Command:** `2> file_name`
+
+
+### Mission 3:
+**To find the line with a certain phrase and its line number**  
+`grep -n "phrase you're searching" file_name > output.txt`
