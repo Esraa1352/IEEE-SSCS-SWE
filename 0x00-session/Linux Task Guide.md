@@ -7,6 +7,7 @@
 `mkdir -p folder_name/folder_inside_name`
 
 
+
 ### Mission 1:
 **To download files from a link**  
 `wget link`
@@ -16,6 +17,7 @@
 
 **To save results of compiling in a certain file**  
 `grep -o word file_name | wc -l > path/to/destination.txt`
+
 
 
 ### Mission 2:
@@ -29,6 +31,8 @@
    **Command:** `2> file_name`
 
 
+
 ### Mission 3:
 **To find the line with a certain phrase and its line number**  
 `grep -n "phrase you're searching" file_name > output.txt`
+
