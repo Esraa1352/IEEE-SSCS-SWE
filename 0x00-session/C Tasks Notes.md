@@ -57,10 +57,25 @@ write() → for output which is `#include unistd.h`
 **to use this in any code we simply**
 `#include _putchar.h 
 _putchar('H');
+ for (int c = 'a'; c <= 'z'; c++){
+ _putchar(c);}
 return 0;`
 
 ---
 
-### Tasks
- 
+## Tasks
 
+### _isalpha Function
+**so what does this function do**
+Returns 1 if the character is a-z or A-Z
+Returns 0 otherwise
+ **refer to the steps of making putchar**
+but in the function 
+`int _isalpha(int c)
+{
+    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+        return 1;
+    return 0;
+}`
+
+**rest is just some proplem solving doesn't need notes** 
