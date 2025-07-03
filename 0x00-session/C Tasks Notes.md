@@ -29,7 +29,7 @@ in order to use it in multiple files to print we need too make a header so we do
 2-we need to know first about guard 
 - #ifndef extra step we take to prevent errors caused by accidentally including the same header file multiple times.
 - #define creates a macro or a symbol. 
-**you might be wandering What the hell is a marco?"** 
+**you might be wondering What the hell is a marco?"** 
 - macro in C (and many other languages with preprocessors) is basically a rule or shorthand that tells the compiler to replace some text with something else before actual compilation starts.
 **Suggestion: just know the simple concepts and know that you need to write**
 3- now comes the easy part which is just defining the function `chat _putchar(char c)`
