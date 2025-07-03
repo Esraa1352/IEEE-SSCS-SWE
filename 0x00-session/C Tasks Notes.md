@@ -29,7 +29,9 @@ but checking if the variable is of a certain value is done through `if m == 2`
 we are creating our new limited printf function it prints a character per time 
 in order to use it in multiple files to print we need too make a header so we don't need to write the function each time 
 **BUT How?**
+
 **_putchar.h**
+
 1-create a file with the name _putchar.h
 2-we need to know first about guard 
 - #ifndef extra step we take to prevent errors caused by accidentally including the same header file multiple times.
@@ -40,6 +42,7 @@ in order to use it in multiple files to print we need too make a header so we do
 3- now comes the easy part which is just defining the function `chat _putchar(char c)`
 
 **_putchar.c**
+
 1-create a file with the name _putchar.c
 2-remember what we did with define and indef ? it helps us to just write `#include _putchar.h` whenever we want to use _putchar function so write that 
 3-here comes what our function does so
