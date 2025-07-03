@@ -43,16 +43,16 @@ in order to use it in multiple files to print we need too make a header so we do
 
 **_putchar.c**
 
-1-create a file with the name _putchar.c
-2-remember what we did with define and indef ? it helps us to just write `#include _putchar.h` whenever we want to use _putchar function so write that 
-3-here comes what our function does so
+1- create a file with the name _putchar.c
+2- remember what we did with define and indef ? it helps us to just write `#include _putchar.h` whenever we want to use _putchar function so write that 
+3- here comes what our function does so
 **how do we print without using print ?**
-1-we include another library Contains declarations for many low-level system calls, such as:
+1- we include another library Contains declarations for many low-level system calls, such as:
 write() → for output which is `#include unistd.h`
-2-we need to know how to use Write() we pass to this function 3 things 
-1- 1 which is standard output (stdout)  
-2-&c address of the character 
-3-number of bytes to be printed 'in this case 1 as we print 1 character '
+2- we need to know how to use Write() we pass to this function 3 things 
+- 1 which is standard output (stdout)  
+-&c address of the character
+-number of bytes to be printed 'in this case 1 as we print 1 character '
 
 **to use this in any code we simply**
 `#include _putchar.h 
