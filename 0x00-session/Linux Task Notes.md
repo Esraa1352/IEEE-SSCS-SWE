@@ -35,3 +35,13 @@
 ### Mission 3:
 **To find the line with a certain phrase and its line number**  
 `grep -n "phrase you're searching" file_name > output.txt`
+
+### Extra Notes 
+** To move files from a directory to another ---> **
+`mv folder1 folder2 file1 destination_directory/`
+
+**Delete a directory and its contents recursively:**  
+`rm -r directory_name` 
+`rm filename`
+
+
