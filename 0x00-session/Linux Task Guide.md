@@ -36,3 +36,10 @@
 **To find the line with a certain phrase and its line number**  
 `grep -n "phrase you're searching" file_name > output.txt`
 
+
+### Extra Note 
+** To move a folder from a place to another ** 
+` mv folder1 folder2 folder3 destination_directory/ `
+
+
+
