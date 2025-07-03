@@ -7,6 +7,7 @@
 **2-PYTHON(Interpreted Language):** On the other hand, Python is like a boss who lets you start working immediately and checks your work as you go along. It interprets your code line by line, so you can run the program even if there are mistakes in parts you haven’t reached yet. Errors only show up when the problematic line is executed otherwise before that error every thing runs and executes smoothly, which makes it flexible
 
 
+---
 ### Mission 1:
 **ASCI CODE**
 Computers and compilers don’t understand letters the way we do , they communicate in numbers. Think of ASCII as a Google Translate between human-readable characters and computer language. For example, when you send the character 'A', it’s translated to the number 65, which is its ASCII code.
@@ -14,11 +15,15 @@ so to print out integers in characters form we don't just do in ASCI language it
 `int B = 5 ;
 printf ("%c",B+'0');`
 
+
+---
 ### Mission 2:
 **Common Mistake**
 assigning a value to a variable is done through `int m = 2 `
 but checking if the variable is of a certain value is done through `if m == 2`
- 
+
+
+ ---
 ## Mission 3:
 **Put Char**
 we are creating our new limited printf function it prints a character per time 
@@ -50,6 +55,8 @@ write() → for output which is `#include unistd.h`
 `#include _putchar.h 
 _putchar('H');
 return 0;`
+
+---
 
 ### Tasks
  
