@@ -14,3 +14,43 @@ so to print out integers in characters form we don't just do in ASCI language it
 `int B = 5 ;
 printf ("%c",B+'0');`
 
+### Mission 2:
+**Common Mistake**
+assigning a value to a variable is done through `int m = 2 `
+but checking if the variable is of a certain value is done through `if m == 2`
+ 
+## Mission 3:
+**Put Char**
+we are creating our new limited printf function it prints a character per time 
+in order to use it in multiple files to print we need too make a header so we don't need to write the function each time 
+**BUT How?**
+**_putchar.h**
+1-create a file with the name _putchar.h
+2-we need to know first about guard 
+- #ifndef extra step we take to prevent errors caused by accidentally including the same header file multiple times.
+- #define creates a macro or a symbol. 
+**you might be wandering What the hell is a marco?"** 
+- macro in C (and many other languages with preprocessors) is basically a rule or shorthand that tells the compiler to replace some text with something else before actual compilation starts.
+**Suggestion: just know the simple concepts and know that you need to write**
+3- now comes the easy part which is just defining the function `chat _putchar(char c)`
+
+**_putchar.c**
+1-create a file with the name _putchar.c
+2-remember what we did with define and indef ? it helps us to just write `#include _putchar.h` whenever we want to use _putchar function so write that 
+3-here comes what our function does so
+**how do we print without using print ?**
+1-we include another library Contains declarations for many low-level system calls, such as:
+write() → for output which is `#include unistd.h`
+2-we need to know how to use Write() we pass to this function 3 things 
+1- 1 which is standard output (stdout)  
+2-&c address of the character 
+3-number of bytes to be printed 'in this case 1 as we print 1 character '
+
+**to use this in any code we simply**
+`#include _putchar.h 
+_putchar('H');
+return 0;`
+
+### Tasks
+ 
+
