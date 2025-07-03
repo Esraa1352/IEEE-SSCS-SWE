@@ -18,6 +18,10 @@
 **To save results of compiling in a certain file**  
 `grep -o word file_name | wc -l > path/to/destination.txt`
 
+**To find the line with a certain phrase and its line number**  
+`grep -n "phrase you're searching" file_name > output.txt`
+
+
 ---
 
 ### Mission 2:
@@ -44,4 +48,5 @@
 `rm -r directory_name` 
 `rm filename`
 
-
+**To run a code and save results in a file**
+gcc all_in_one.c -o main
