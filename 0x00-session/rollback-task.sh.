@@ -1,6 +1,0 @@
- 684  nano dementor-invasion.c
-  685  git add dementor-invasion.c
-  686  git commit -m "adding dementor-invasion.c"
-  687  git push
-  688  git reset HEAD~1
-  689  git push --force
