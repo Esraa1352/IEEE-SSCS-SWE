@@ -53,12 +53,19 @@ Stores local variables (declared inside functions)
 
 4- Heap Segment
 Stores dynamically allocated memory using `malloc`, `calloc`, or `realloc`.
+
 `malloc` **->** Allocates a block of memory of given size (in bytes) not initialized (garbage values)
+
 `int *arr = (int*) malloc(5 * sizeof(int)); `
+
 `calloc` **->** Allocates memory for an array of elements Initializes all bits to 0.
+
 `int *arr = (int *) calloc (5 * sizeof(int));`
+
 `realloc` Changes the size of previously allocated memory by `malloc` or `calloc`
+
 `arr = (int*) realloc(arr, 10 * sizeof(int))`
+
 **Important Note** we need to do a `free(arr);` after the allocations to free that held part  
 
 5- Read-Only Data Segment
