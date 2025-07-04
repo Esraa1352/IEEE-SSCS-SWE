@@ -1,6 +1,7 @@
 # Variadic Function 
 A variadic function is a function that can take a variable number of arguments.
 ### What is New to know so we can use it ?
+- including # include <stdarg.h> is necessary 
 - declare the function as func(int n ,...)
   
 - `va_list args` This declares a variable args of type va_list.
