@@ -26,7 +26,7 @@ What if we want to group different types of entities (like animals, people, or o
  char Name ;
  int ID ;
 } name_of_struct; `
-name_of_struct member_of_struct={Esraa,202235};
+`name_of_struct member_of_struct={Esraa,202235};`
 
 ### Notes
 - structs can be a return type of function `name_of_struct echo_data(void *data)` this returns a struct
