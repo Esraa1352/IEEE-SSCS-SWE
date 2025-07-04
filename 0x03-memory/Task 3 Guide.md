@@ -21,17 +21,17 @@ So subtracting `int *start, *end; ` `end - start`
 ## structs 
 What if we want to group different types of entities (like animals, people, or objects), where each group has its own set of characteristics?" 
 **How to use ?** 
-`typedef struct
-{
- char Name ;
- int ID ;
-} name_of_struct; `
+`typedef struct`
+`{`
+ `char Name ;`
+ `int ID ;`
+`} name_of_struct; `
 `name_of_struct member_of_struct={Esraa,202235};`
 
 ### Notes
 - structs can be a return type of function `name_of_struct echo_data(void *data)` this returns a struct
 - You can create pointers to structs  `name_of_struct *input ; ` this pointer can acess any element in this struct
-**How to acess the elements**
+**How to acess the elements?**
 - we use the **->** operator 
 - Example where DataType is a struct : `DataType d = {1, 2.5, 'x'};
   DataType *ptr = &d;
