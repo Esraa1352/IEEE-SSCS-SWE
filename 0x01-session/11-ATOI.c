@@ -64,6 +64,6 @@ _putchar(fd, buffer[k]);
 _putchar(fd, '\n');
 close(fd);
 
-return result * ((sign == -1) ? -1 : 1);
+return result * sign; 
 }
 
