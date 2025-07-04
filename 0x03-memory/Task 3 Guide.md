@@ -73,3 +73,13 @@ Stores string literals and constants.
 string literals **->** `char *str = "Hello";` 
 
 ⚠️**Remark** `char str[] = "Hello";` that is considered a local variable 
+
+---
+### memset
+- a built in function in string.h library is used in C to set a block of memory with a particular value
+`memset(pointer_to_block, value, size_in_bytes);`
+----
+### memcpy 
+stands for memory copy. It is used to copy a block of memory from one location to another.
+`memcpy(void *dest, const void *src, size_t num);`
+where **size_t** is an unsigned integer type used to represent the size of objects in bytes.
