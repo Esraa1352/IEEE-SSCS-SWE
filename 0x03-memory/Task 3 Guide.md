@@ -70,5 +70,6 @@ Stores dynamically allocated memory using `malloc`, `calloc`, or `realloc`.
 
 5- Read-Only Data Segment
 Stores string literals and constants.   
-`char *str = "Hello";` 
+string literals **->** `char *str = "Hello";` 
+
 ⚠️**Remark** `char str[] = "Hello";` that is considered a local variable 
