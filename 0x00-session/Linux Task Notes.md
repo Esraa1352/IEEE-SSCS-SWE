@@ -41,17 +41,17 @@
 `grep -n "phrase you're searching" file_name > output.txt`
 
 ### Extra Notes 
-**To move files from a directory to another**
+- **To move files from a directory to another**
 `mv folder1 folder2 file1 destination_directory/`
 
-**Delete a directory and its contents recursively:**  
+- **Delete a directory and its contents recursively:**  
 `rm -r directory_name` 
 `rm filename`
 
-**To run a code and save results in a file**
+- **To run a code and save results in a file**
 gcc all_in_one.c -o main
 
-**cannot pull with rebase: You have unstaged changes solution**
+- **cannot pull with rebase: You have unstaged changes solution**
 just stash your unstaged changes `git add` pull then return them and push
 `git stash`
 `git pull --rebase`
