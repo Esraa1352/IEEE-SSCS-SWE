@@ -11,6 +11,7 @@ so if we say
 `printf("address of the first element of array is :%p",arr)` it prints thae address of the first element 
 - int (*ptr array)[5] ---> points to the whole array
 - int *p = NULL ---> Pointer that points to nothing
+- 
 **Notes**
 - %s expects a pointer to the first char of the string 
 - when we say return "string" in functions it returns a pointer to the first char
