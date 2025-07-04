@@ -36,6 +36,6 @@ int main()
     }
     printf("\n");
 
-    free(filled_array); // Don't forget to free allocated memory
+    free(filled_array); 
     return 0;
 }
