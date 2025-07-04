@@ -50,3 +50,9 @@
 
 **To run a code and save results in a file**
 gcc all_in_one.c -o main
+
+**cannot pull with rebase: You have unstaged changes solution**
+just stash your unstaged changes `git add` pull then return them and push
+`git stash`
+`git pull --rebase`
+`git stash pop`
