@@ -5,6 +5,7 @@ A variadic function is a function that can take a variable number of arguments.
   
 - `va_list args` This declares a variable args of type va_list.
 it will be used to access the additional arguments passed after the named parameters.
+
 👉 Think of it like a pointer or cursor that can step through the unnamed arguments one by one. 
 
 
@@ -21,5 +22,6 @@ It tells va_start where the variable arguments begin
 
 
 - `va_end(args);` This cleans up after you've finished using the va_list.
+
 👉 It’s important to call va_end before exiting the function to avoid undefined behavior.
 
