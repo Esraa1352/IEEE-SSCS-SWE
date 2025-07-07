@@ -45,15 +45,13 @@ int _printf(const char *format, ...)
                 }
                 else
                 {
-                    // max for int is 10 characters
                     char arr[10];  
                     int m = 0;
             
                     while (num > 0)
                     {
-                        arr[m] = (num % 10) + '0'; 
+                        arr[m++] = (num % 10) + '0'; 
                         num = num / 10;
-                        m++;
                     }
             
                     for (int j = m - 1; j >= 0; j--)
@@ -63,7 +61,6 @@ int _printf(const char *format, ...)
                     }
                 }
             }
-            
             else if (format[i] == 's')
             {
                 char *string = va_arg(args, char *);
@@ -79,6 +76,40 @@ int _printf(const char *format, ...)
             {
                 _putchar('%');
                 count++;
+            }
+            else if (format[i] == 'b')
+            {
+                int num = va_arg(args, int);
+                
+                if (num == 0)
+                {
+                    _putchar('0');
+                    count++;
+                }
+                else
+                {
+                    char binary[32]; 
+                    int j = 0;
+
+                    if (num < 0)
+                    {
+                        _putchar('-');
+                        num = -num;
+                        count++;
+                    }
+
+                    while (num > 0)
+                    {
+                        binary[j++] = (num % 2) + '0';
+                        num = num / 2;
+                    }
+
+                    for (int k = j - 1; k >= 0; k--)
+                    {
+                        _putchar(binary[k]);
+                        count++;
+                    }
+                }
             }
             else
             {
@@ -96,9 +127,8 @@ int _printf(const char *format, ...)
     }
 
     va_end(args);
-    return count;
+    return count; 
 }
-
 int main(void)
 {
     int count=0;
@@ -109,8 +139,8 @@ int main(void)
     count = _printf("Percent sign test: %%\n");
     count = _printf("NULL string test: %s\n", (char *)NULL);
     count = _printf("Unknown specifier test: %q\n");
+    count = _printf("Unknown specifier test: %b\n" , 123);
     _printf("number of printed characters test: %d\n", count);
 
     return 0;
 }
-
