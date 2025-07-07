@@ -1,0 +1,116 @@
+#include "printf.h"
+#include <stdarg.h>
+#include <stddef.h>
+
+int _printf(const char *format, ...)
+{
+    va_list args;
+    int i = 0, count = 0;
+
+    if (format == NULL)
+        return -1;
+
+    va_start(args, format);
+
+    while (format[i] != '\0')
+    {
+        if (format[i] == '%' && format[i + 1] != '\0')
+        {
+            i++; 
+            if (format[i] == 'c')
+            {
+                _putchar(va_arg(args, int));
+                count++;
+            }
+            else if (format[i] == 'd')
+            {
+                int num = va_arg(args, int);
+                
+                if (num < 0)
+                {
+                    _putchar('-');
+                    num = -num;
+                    count++;
+                }
+                else 
+                {
+                    _putchar('+');   
+                    count++;
+                }
+            
+                if (num == 0)
+                {
+                    _putchar('0');
+                    count++;
+                }
+                else
+                {
+                    // max for int is 10 characters
+                    char arr[10];  
+                    int m = 0;
+            
+                    while (num > 0)
+                    {
+                        arr[m] = (num % 10) + '0'; 
+                        num = num / 10;
+                        m++;
+                    }
+            
+                    for (int j = m - 1; j >= 0; j--)
+                    {
+                        _putchar(arr[j]);
+                        count++;
+                    }
+                }
+            }
+            
+            else if (format[i] == 's')
+            {
+                char *string = va_arg(args, char *);
+                if (string == NULL)
+                    string = "(null)";  
+                for (int j = 0; string[j] != '\0'; j++)
+                {
+                    _putchar(string[j]);
+                    count++;
+                }
+            }
+            else if (format[i] == '%')
+            {
+                _putchar('%');
+                count++;
+            }
+            else
+            {
+                _putchar('%');
+                _putchar(format[i]);
+                count += 2;
+            }
+        }
+        else
+        {
+            _putchar(format[i]);
+            count++;
+        }
+        i++;
+    }
+
+    va_end(args);
+    return count;
+}
+
+int main(void)
+{
+    int count=0;
+
+    count=  _printf("characters test: %c\n",'A');
+    count = _printf("integers test: %d\n", 123);
+    count = _printf("String test: %s\n", "alooo");
+    count = _printf("Percent sign test: %%\n");
+    count = _printf("NULL string test: %s\n", (char *)NULL);
+    count = _printf("Unknown specifier test: %q\n");
+    _printf("number of printed characters test: %d\n", count);
+
+    return 0;
+}
+
