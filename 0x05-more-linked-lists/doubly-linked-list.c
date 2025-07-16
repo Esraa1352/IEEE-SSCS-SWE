@@ -270,9 +270,7 @@ int main()
         _clear(&list);
         printf("After clearing list: Size = %d, isEmpty = %s\n", _size(&list), _isEmpty(&list) ? "Yes" : "No");
     
-        // Free the sublist itself (not the nodes inside it — they were shallow-copied)
-        free(sub);
-    
-        return 0;
+
+      return 0;
 }
 
