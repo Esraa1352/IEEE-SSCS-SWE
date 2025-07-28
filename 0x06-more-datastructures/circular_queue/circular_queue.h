@@ -7,4 +7,5 @@ int _deque (int data []);
 int _Full(int data[]);
 int _isEmpty(int data[]) ;
 int _enque (int data[],int element);
+
 #endif
