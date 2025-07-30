@@ -67,7 +67,6 @@ int is_duplicate_student_id(int id)
 
 void add_student()
 {
-    csv_read_student("students.csv");
         if (student_count >= 100) {
             printf("Cannot add more students.\n");
             return;
@@ -100,6 +99,7 @@ void add_student()
 int main()
 {
     int choice;
+    csv_read_student("students.csv");
     do {
         printf("\n1. Add Student\n2. Exit\nChoose an option: ");
         scanf("%d", &choice);
