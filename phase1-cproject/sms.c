@@ -7,12 +7,20 @@
 #include "student.h"
 #include "teacher.h"
 #include "courses.h"
+
+
 Student *students = NULL;
 Teacher *teachers = NULL;
 Course *courses =   NULL;
+Data *users =NULL;
+
 int student_count = 0;
 int teacher_count = 0;
 int course_count = 0;
+int users_count=0;
+int option ;
+char input [256];
+
 
 void hash_password(const char *password, char *dest) {
     unsigned char hash[SHA256_DIGEST_LENGTH];
@@ -23,41 +31,58 @@ void hash_password(const char *password, char *dest) {
     dest[64] = '\0';
 }
 
-int get_data() {
-    char password[50];
+int get_data() 
+{
     char option_str[10];
     Data user;
 
+    // --- Name ---
     printf("Hello, to sign in please enter your name: ");
-    fgets(user.name, sizeof(user.name), stdin);
-    user.name[strcspn(user.name, "\n")] = '\0';
+    fgets(input, sizeof(input), stdin);
+    input[strcspn(input, "\n")] = '\0';
+    strcpy(user.name, input);
 
+    // --- Password ---
     printf("Please enter your password: ");
-    fgets(password, sizeof(password), stdin);
-    password[strcspn(password, "\n")] = '\0';
-    hash_password(password, user.hashed_password);
+    fgets(input, sizeof(input), stdin);
+    input[strcspn(input, "\n")] = '\0';
+    hash_password(input, user.hashed_password);
 
+    // --- Email ---
     printf("Please enter your email: ");
     fgets(user.email, sizeof(user.email), stdin);
     user.email[strcspn(user.email, "\n")] = '\0';
 
+    // --- Role ---
     printf("Are you a/an: 1-ADMIN 2-MODERATOR 3-USER: ");
     fgets(option_str, sizeof(option_str), stdin);
     int option = atoi(option_str);
+    if (option < 1 || option > 3) option = 3; // default USER
     user.role = option - 1;
-
     const char *role_str[] = {"ADMIN", "MODERATOR", "USER"};
-
+    printf("---------------------------------------------------------\n");
+    // --- Append to txt file ---
     FILE *file = fopen("users.txt", "a");
-    if (file == NULL) {
+    if (!file) {
         perror("Sorry, failed to save your data");
         return -1;
     }
 
-    fprintf(file, "-------------------------------------------------------------------------------------------------------------------\n");
-    fprintf(file, "Name: %s\nEmail: %s\nPassword: %s\nRole: %s\n", user.name, user.email, user.hashed_password, role_str[user.role]);
+    // CSV format: name,email,hashed_password,role
+    fprintf(file, "\"%s\",\"%s\",\"%s\",\"%s\"\n", 
+            user.name, user.email, user.hashed_password, role_str[user.role]);
     fclose(file);
-    
+
+    // --- Store in memory ---
+    Data *tmp = realloc(users, sizeof(Data) * (users_count + 1));
+    if (!tmp) {
+        perror("Failed to save data in memory");
+        return -1;
+    }
+    users = tmp;
+    users[users_count] = user;
+    users_count++;
+
     return option;
 }
 
@@ -92,12 +117,54 @@ void Empty_entry(char *input)
 
 int main() 
 {
-    int option = get_data();
-    if (option < 0) return 1; // Error in get_data
+
 
     int section_choice;
 
     do {
+        int directions ;
+        printf("Welcome\n1.Sign up\n2.Log in\n");
+        scanf("%d",&directions);
+        int ch;
+        while ((ch = getchar()) != '\n' && ch != EOF);
+        switch (directions)
+        {
+        case 1:
+            option = get_data(users_count);
+            break;        
+        case 2:
+        {
+        printf("Please Enter your User Name :");
+        fgets(input,sizeof(input),stdin);
+        int loaded = load_users_from_file("users.txt");
+        int i ; 
+        for (i =0 ;i<=users_count;i++)
+        {
+            if (strcmp(users[i].name,input)==0)
+            {
+                break;
+            }
+            else 
+            {
+                printf("\nName hasn't been registered yet Please Sign up first\n");
+                return 0;
+            }
+        }
+        printf("\nPlease Enter your Password: ");
+        fgets(input, sizeof(input), stdin);
+        input[strcspn(input, "\n")] = '\0';
+
+        char hashed_input[65];
+        hash_password(input, hashed_input);
+
+        if (strcmp(hashed_input, users[i].hashed_password) == 0) {
+            printf("\nLogin Success\nWelcome %s\n", users[i].name);
+            option = (users[i].role)+1 ;
+        } else {
+            printf("\nIncorrect password\n");
+            return 0;
+        }
+
         printf("---------------------------------------------------------------------------\n");
         printf("1. Students Section\n2. Teacher Section\n3. Courses Section\n4. Exit\n");
         printf("---------------------------------------------------------------------------\n");
@@ -188,7 +255,13 @@ int main()
                 printf("Invalid section choice!\n");
                 break;
         }
-    } while (section_choice != 4);
-
+    break;
+    }
+    default :
+    printf("Invalid section choice!\n");
+}} 
+    while (section_choice != 4);
     return 0;
+    
 }
+        
