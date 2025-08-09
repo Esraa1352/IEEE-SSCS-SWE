@@ -9,7 +9,7 @@
 #include "courses.h"
 Student *students = NULL;
 Teacher *teachers = NULL;
-Course *courses =NULL;
+Course *courses =   NULL;
 int student_count = 0;
 int teacher_count = 0;
 int course_count = 0;
@@ -131,7 +131,7 @@ int main()
 
             case 2: {
                 int teacher_choice;
-                if (option == 0 || option == 1) {
+                if (option == 1 || option == 2) {
                     printf("1. Add Teacher\n2. Read Teacher\n3. Update Teacher\n4. Delete Teacher\n");
                     scanf("%d", &teacher_choice);
                     getchar();
@@ -156,7 +156,7 @@ int main()
 
             case 3: {
                 int course_choice;
-                if (option == 0 || option == 1) {
+                if (option == 1 || option == 2) {
                     printf("1. Add Course\n2. Read Course\n3. Update Course\n4. Delete Course\n");
                     scanf("%d", &course_choice);
                     getchar();
