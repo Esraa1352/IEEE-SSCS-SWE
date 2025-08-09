@@ -54,8 +54,9 @@ void Empty_entry(char *input);
 extern Teacher *teachers;
 extern Student *students;
 extern Course *courses;
-
-
+extern Data *users;
+extern char input [256];
+extern int users_count;
 extern int teacher_count;
 extern int student_count;
 extern int course_count;

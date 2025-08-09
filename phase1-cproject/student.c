@@ -6,7 +6,6 @@
 #include"sms.h"
 
 
-char input[100];
 
 void add_student() {
     students=csv_read_student("students.csv", &student_count);

@@ -8,7 +8,6 @@
 
 void add_teacher() {
     teachers=csv_read_teacher("teacher.csv", &teacher_count);
-    char input[100];
 
     if (teacher_count >= 100) {
         printf("Cannot add more teachers.\n");
@@ -88,7 +87,6 @@ void update_teacher() {
     teachers=csv_read_teacher("teacher.csv", &teacher_count);
 
     int target_id;
-    char input[100];
     printf("Enter the ID of the teacher to update: ");
     fgets(input, sizeof(input), stdin);
     Empty_entry(input);
@@ -181,7 +179,6 @@ void delete_teacher() {
     teachers=csv_read_teacher("teacher.csv", &teacher_count);
 
     int delete_id;
-    char input[100];
     printf("Enter the ID of the teacher to delete: ");
     fgets(input, sizeof(input), stdin);
     Empty_entry(input);

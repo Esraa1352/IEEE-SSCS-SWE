@@ -136,7 +136,6 @@ int main()
         {
         printf("Please Enter your User Name :");
         fgets(input,sizeof(input),stdin);
-        int loaded = load_users_from_file("users.txt");
         int i ; 
         for (i =0 ;i<=users_count;i++)
         {
