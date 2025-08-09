@@ -7,7 +7,7 @@
 #include "student.h"
 #include "teacher.h"
 #include "courses.h"
-
+#include"load_users.h"
 
 Student *students = NULL;
 Teacher *teachers = NULL;
@@ -118,7 +118,7 @@ void Empty_entry(char *input)
 int main() 
 {
 
-
+    load_users();
     int section_choice;
 
     do {
@@ -137,32 +137,36 @@ int main()
         printf("Please Enter your User Name :");
         fgets(input,sizeof(input),stdin);
         int i ; 
-        for (i =0 ;i<=users_count;i++)
-        {
-            if (strcmp(users[i].name,input)==0)
-            {
+        input[strcspn(input, "\n")] = '\0';  // Remove trailing newline
+        int found = 0;
+        for (i = 0; i < users_count; i++) {
+            if (strcmp(users[i].name, input) == 0) {
+                found = 1;
                 break;
             }
-            else 
-            {
-                printf("\nName hasn't been registered yet Please Sign up first\n");
-                return 0;
-            }
         }
-        printf("\nPlease Enter your Password: ");
-        fgets(input, sizeof(input), stdin);
-        input[strcspn(input, "\n")] = '\0';
-
-        char hashed_input[65];
-        hash_password(input, hashed_input);
-
-        if (strcmp(hashed_input, users[i].hashed_password) == 0) {
-            printf("\nLogin Success\nWelcome %s\n", users[i].name);
-            option = (users[i].role)+1 ;
-        } else {
-            printf("\nIncorrect password\n");
+        if (!found) {
+            printf("\nName hasn't been registered yet. Please Sign up first\n");
             return 0;
         }
+
+        char hashed_input[65];
+        while (1) {
+            printf("\nPlease Enter your Password: ");
+            fgets(input, sizeof(input), stdin);
+            input[strcspn(input, "\n")] = '\0';
+        
+            hash_password(input, hashed_input);
+        
+            if (strcmp(hashed_input, users[i].hashed_password) == 0) {
+                printf("\nLogin Success\nWelcome %s\n", users[i].name);
+                option = (users[i].role) + 1;
+                break;  
+            } else {
+                printf("Incorrect password. Please try again.\n");
+            }
+        }
+        
 
         printf("---------------------------------------------------------------------------\n");
         printf("1. Students Section\n2. Teacher Section\n3. Courses Section\n4. Exit\n");
