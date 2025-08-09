@@ -4,12 +4,9 @@
 #include <string.h>
 #include <stdio.h>
 
-//enum is a variable of not many options possible to it limited to it
-//where i don't want it to be a wide options i want it limited to the options it can have
-//refrence for studying https://www.youtube.com/watch?v=EiDNaAOWkd8
 
 // task1
-typedef enum
+typedef enum 
 {
     ADMIN ,  MODERATOR ,   USER
 }Role;
@@ -23,22 +20,22 @@ typedef struct
 }Data;
 
 void hash_password(const char *password,char *dest);
-void get_data();
+int get_data();
 
 // task2
 
 typedef struct {
     int id;
     char name[50];
-    float grade;
-    int courses[10];
+    int grade;
+    char courses[10][10];
     int course_count;
 } Student;
 
 typedef struct {
     int id;
     char name[50];
-    int courses[10];
+    char courses[10][10];
     int course_count;
 } Teacher;
 
@@ -51,7 +48,15 @@ typedef struct {
 
 
 int is_duplicate_student_id(int id);
-void add_student();
-void add_teacher();
-void add_course();
+int is_duplicate_teacher_id(int id);
+int is_blank(char *input);
+void Empty_entry(char *input);
+extern Teacher *teachers;
+extern Student *students;
+extern Course *courses;
+
+
+extern int teacher_count;
+extern int student_count;
+extern int course_count;
 #endif

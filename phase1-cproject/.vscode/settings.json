@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "sha.h": "c",
+        "handle-csv.h": "c",
+        "typeinfo": "c"
+    }
+}
